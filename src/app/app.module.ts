@@ -10,6 +10,7 @@ import { HomepageComponent } from './src/app/features/homepage/homepage.componen
 import { BadgeListComponent } from './src/app/features/badge/badge-list/badge-list.component';
 import { BadgeInsertComponent } from './src/app/features/badge/badge-insert/badge-insert.component';
 import {FormsModule} from "@angular/forms";
+import { BadgeShowComponent } from './src/app/features/badge/badge-show/badge-show.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import {FormsModule} from "@angular/forms";
     HomepageComponent,
     BadgeListComponent,
     BadgeInsertComponent,
+    BadgeShowComponent,
   ],
     imports: [
         BrowserModule,
