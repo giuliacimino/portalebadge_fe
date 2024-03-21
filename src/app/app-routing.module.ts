@@ -4,8 +4,12 @@ import {HomepageComponent} from "./src/app/features/homepage/homepage.component"
 import {BadgeListComponent} from "./src/app/features/badge/badge-list/badge-list.component";
 import {BadgeInsertComponent} from "./src/app/features/badge/badge-insert/badge-insert.component";
 import {BadgeShowComponent} from "./src/app/features/badge/badge-show/badge-show.component";
+import {BadgeEditComponent} from "./src/app/features/badge/badge-edit/badge-edit.component";
+import {BadgeDeleteComponent} from "./src/app/features/badge/badge-delete/badge-delete.component";
 
 const routes: Routes = [
+  { path: 'badge/delete/:id', component: BadgeDeleteComponent },
+  { path: 'badge/edit/:id', component: BadgeEditComponent },
   { path: 'badge/show/:id', component: BadgeShowComponent },
   { path: 'badge/insert', component: BadgeInsertComponent },
   { path: 'badge/list', component: BadgeListComponent },

@@ -11,6 +11,8 @@ import { BadgeListComponent } from './src/app/features/badge/badge-list/badge-li
 import { BadgeInsertComponent } from './src/app/features/badge/badge-insert/badge-insert.component';
 import {FormsModule} from "@angular/forms";
 import { BadgeShowComponent } from './src/app/features/badge/badge-show/badge-show.component';
+import { BadgeEditComponent } from './src/app/features/badge/badge-edit/badge-edit.component';
+import { BadgeDeleteComponent } from './src/app/features/badge/badge-delete/badge-delete.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { BadgeShowComponent } from './src/app/features/badge/badge-show/badge-sh
     BadgeListComponent,
     BadgeInsertComponent,
     BadgeShowComponent,
+    BadgeEditComponent,
+    BadgeDeleteComponent,
   ],
     imports: [
         BrowserModule,
