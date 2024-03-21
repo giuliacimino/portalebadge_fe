@@ -1,0 +1,113 @@
+<!-- Begin page content -->
+<main class="flex-shrink-0">
+  <div class="container">
+
+
+    <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="errorMessage">
+      {{errorMessage}}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <div class='card'>
+      <div class='card-header'>
+        <h5>Inserisci nuovo badge</h5>
+      </div>
+      <div class='card-body'>
+
+        <form (ngSubmit)="save(badgeForm)" #badgeForm="ngForm" class="row g-3">
+
+
+          <div class="col-md-6">
+            <label>Nome <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" placeholder="Inserire il nome" required minlength="2"
+                   id="nome" name="nome" [(ngModel)]="badge.nome" #nomeVar="ngModel"
+                   [ngClass]="{'is-invalid': (nomeVar.touched || nomeVar.dirty) && !nomeVar.valid }">
+            <span class="invalid-feedback">
+                            <span *ngIf="nomeVar.errors?.['required']">
+                                Prego inserire un valore
+                            </span>
+                            <span *ngIf="nomeVar.errors?.['minlength']">
+                                Il campo deve avere almeno due caratteri.
+                            </span>
+                        </span>
+          </div>
+
+          <div class="col-md-6">
+            <label>Cognome <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" placeholder="Inserire il cognome" required minlength="2"
+                   id="cognome" name="cognome" [(ngModel)]="badge.cognome" #cognomeVar="ngModel"
+                   [ngClass]="{'is-invalid': (cognomeVar.touched || cognomeVar.dirty) && !cognomeVar.valid }">
+            <span class="invalid-feedback">
+                            <span *ngIf="cognomeVar.errors?.['required']">
+                                Prego inserire un valore
+                            </span>
+                            <span *ngIf="cognomeVar.errors?.['minlength']">
+                                Il campo deve avere almeno due caratteri.
+                            </span>
+                        </span>
+          </div>
+
+          <div class="col-md-6">
+            <label>Codice Fiscale <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" placeholder="Inserire il codice fiscale" required minlength="2"
+                   id="titolo" name="titolo" [(ngModel)]="badge.codiceFiscale" #codiceFiscaleVar="ngModel"
+                   [ngClass]="{'is-invalid': (codiceFiscaleVar.touched || codiceFiscaleVar.dirty) && !codiceFiscaleVar.valid }">
+            <span class="invalid-feedback">
+                            <span *ngIf="codiceFiscaleVar.errors?.['required']">
+                                Prego inserire un valore
+                            </span>
+                            <span *ngIf="codiceFiscaleVar.errors?.['minlength']">
+                                Il campo deve avere almeno due caratteri.
+                            </span>
+                        </span>
+          </div>
+
+          <div class=" col-md-6">
+            <label>Data Di Nascita<span class="text-danger">*</span></label>
+            <input type="date" class="form-control" placeholder="dd/MM/yy" required id="dataIn"
+                   name="dataNascita" title="formato : gg/mm/aaaa" [(ngModel)]="badge.dataNascita"
+                   #dataNascitaVar="ngModel"
+                   [ngClass]="{'is-invalid': (dataNascitaVar.touched || dataNascitaVar.dirty) && !dataNascitaVar.valid }">
+            <span class="invalid-feedback">
+                            <span *ngIf="!dataNascitaVar.valid">
+                                Il campo deve essere correttamente valorizzato
+                            </span>
+                        </span>
+          </div>
+
+          <div class="col-md-6 mt-4 form-check" id="scadenza">
+            <p class="mb-1">Scadenza</p>
+            <input type="checkbox" class="form-check-input" id="scadenzaTemporaneo" name="scadenzaTemporaneo" value="temporaneo" [(ngModel)]="scadenzaTemporaneo">
+            <label class="form-check-label" for="scadenzaTemporaneo">Badge temporaneo</label><br>
+
+            <input type="checkbox" class="form-check-input" id="scadenzaPermanente" name="scadenzaPermanente" value="permanente" [(ngModel)]="scadenzaPermanente">
+            <label class="form-check-label" for="scadenzaPermanente">Badge permanente</label>
+          </div>
+
+
+
+          <div class="col-12">
+            <button type="submit" name="submit" value="submitValue" id="submitId"
+                    class="btn btn-primary">Conferma</button>
+          </div>
+
+          <div class='card-footer'>
+            <button
+              class='btn btn-outline-secondary' style='width: 80px' (click)="onBack()"> <i
+              class='fa fa-chevron-left'></i> Back
+            </button>
+          </div>
+
+
+        </form>
+        <!-- {{ libro | json }} -->
+
+        <!-- end card-body -->
+      </div>
+      <!-- end card -->
+    </div>
+    <!-- end container -->
+  </div>
+
+  <!-- end main -->
+</main>

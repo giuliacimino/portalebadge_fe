@@ -1,0 +1,62 @@
+<main class="flex-shrink-0">
+  <div class="container">
+
+
+
+
+
+    <div class='card'>
+      <div class='card-header'>
+        <h5>Lista dei risultati</h5>
+      </div>
+      <div class='card-body'>
+        <a class="btn btn-primary " [routerLink]="['/badge/insert']">Add New</a>
+
+        <div class='table-responsive'>
+          <table class='table table-hover '>
+            <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Cognome</th>
+              <th>Data Nascita</th>
+
+
+            </tr>
+            </thead>
+            <tbody *ngFor="let badgeItem of badges">
+            <tr>
+              <td>{{badgeItem.nome }}</td>
+              <td>{{badgeItem.cognome}}</td>
+              <td>{{badgeItem.dataNascita | date:'dd/MM/yyyy'}}</td>
+
+
+              <td>
+
+
+                <a class="btn  btn-sm btn-outline-primary ml-auto mr-auto" style='margin-right: 5px;'
+                   [routerLink]="['/badge/show', badgeItem.id]">Visualizza dettagli</a>
+                <a class="btn  btn-sm btn-outline-primary ml-auto mr-auto" style='margin-right: 5px;'
+                   [routerLink]="['/badge/edit', badgeItem.id]">Modifica</a>
+                <a class="btn btn-outline-danger btn-sm ml-auto mr-auto"
+                   [routerLink]="['/badge/delete', badgeItem.id]">Elimina</a>
+
+
+              </td>
+
+            </tr>
+
+            </tbody>
+          </table>
+        </div>
+
+<!--        &lt;!&ndash; end card-body &ndash;&gt;-->
+      </div>
+      <!-- end card -->
+    </div>
+
+
+    <!-- end container -->
+  </div>
+
+</main>
+
