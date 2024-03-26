@@ -1,0 +1,12 @@
+.custom-table{
+  background-color: #ffffff;
+}
+.column-header{
+ color: black;
+}
+.column-content{
+  color: black;
+}
+.table-responsive {
+  margin-top: 2rem;
+}

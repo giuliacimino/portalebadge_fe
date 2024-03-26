@@ -13,6 +13,9 @@ import {FormsModule} from "@angular/forms";
 import { BadgeShowComponent } from './src/app/features/badge/badge-show/badge-show.component';
 import { BadgeEditComponent } from './src/app/features/badge/badge-edit/badge-edit.component';
 import { BadgeDeleteComponent } from './src/app/features/badge/badge-delete/badge-delete.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatTableModule} from "@angular/material/table";
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
   declarations: [
@@ -26,12 +29,15 @@ import { BadgeDeleteComponent } from './src/app/features/badge/badge-delete/badg
     BadgeEditComponent,
     BadgeDeleteComponent,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        HttpClientModule,
-        FormsModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatButtonModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

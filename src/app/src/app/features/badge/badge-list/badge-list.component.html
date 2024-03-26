@@ -12,50 +12,93 @@
       <div class='card-body'>
         <a class="btn btn-primary " [routerLink]="['/badge/insert']">Add New</a>
 
-        <div class='table-responsive'>
-          <table class='table table-hover '>
-            <thead>
-            <tr>
-              <th>Nome</th>
-              <th>Cognome</th>
-              <th>Data Nascita</th>
+<!--        <div class='table-responsive'>-->
+<!--          <table class='table table-hover '>-->
+<!--            <thead>-->
+<!--            <tr>-->
+<!--              <th>Nome</th>-->
+<!--              <th>Cognome</th>-->
+<!--              <th>Data Nascita</th>-->
+<!--              <th>Codice Fiscale</th>-->
 
 
-            </tr>
-            </thead>
-            <tbody *ngFor="let badgeItem of badges">
-            <tr>
-              <td>{{badgeItem.nome }}</td>
-              <td>{{badgeItem.cognome}}</td>
-              <td>{{badgeItem.dataNascita | date:'dd/MM/yyyy'}}</td>
+
+<!--            </tr>-->
+<!--            </thead>-->
+<!--            <tbody *ngFor="let badgeItem of badges">-->
+<!--            <tr>-->
+<!--              <td>{{badgeItem.nome }}</td>-->
+<!--              <td>{{badgeItem.cognome}}</td>-->
+<!--              <td>{{badgeItem.dataNascita | date:'dd/MM/yyyy'}}</td>-->
+<!--              <td>{{badgeItem.codiceFiscale}}</td>-->
 
 
-              <td>
+
+<!--              <td>-->
 
 
-                <a class="btn  btn-sm btn-outline-primary ml-auto mr-auto" style='margin-right: 5px;'
-                   [routerLink]="['/badge/show', badgeItem.id]">Visualizza dettagli</a>
-                <a class="btn  btn-sm btn-outline-primary ml-auto mr-auto" style='margin-right: 5px;'
-                   [routerLink]="['/badge/edit', badgeItem.id]">Modifica</a>
-                <a class="btn btn-outline-danger btn-sm ml-auto mr-auto"
-                   [routerLink]="['/badge/delete', badgeItem.id]">Elimina</a>
+<!--                <a class="btn  btn-sm btn-outline-primary ml-auto mr-auto" style='margin-right: 5px;'-->
+<!--                   [routerLink]="['/badge/show', badgeItem.id]">Visualizza dettagli</a>-->
+<!--                <a class="btn  btn-sm btn-outline-primary ml-auto mr-auto" style='margin-right: 5px;'-->
+<!--                   [routerLink]="['/badge/edit', badgeItem.id]">Modifica</a>-->
+<!--                <a class="btn btn-outline-danger btn-sm ml-auto mr-auto"-->
+<!--                   [routerLink]="['/badge/delete', badgeItem.id]">Elimina</a>-->
 
 
+<!--              </td>-->
+
+<!--            </tr>-->
+
+<!--            </tbody>-->
+<!--          </table>-->
+<!--        </div>-->
+
+
+
+        <div class="table-responsive">
+          <table mat-table [dataSource]="badges" class="mat-table custom-table">
+
+            <ng-container matColumnDef="nome" >
+              <th mat-header-cell *matHeaderCellDef class="column-header"> Nome </th>
+              <td mat-cell *matCellDef="let badgeItem" class="column-content"> {{badgeItem.nome}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="cognome" >
+              <th mat-header-cell *matHeaderCellDef class="column-header"> Cognome </th>
+              <td mat-cell *matCellDef="let badgeItem" class="column-content"> {{badgeItem.cognome}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="dataNascita" >
+              <th mat-header-cell *matHeaderCellDef class="column-header"> Data di Nascita </th>
+              <td mat-cell *matCellDef="let badgeItem" class="column-content"> {{badgeItem.dataNascita | date:'dd/MM/yyyy'}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="codiceFiscale" >
+              <th mat-header-cell *matHeaderCellDef class="column-header"> Codice Fiscale </th>
+              <td mat-cell *matCellDef="let badgeItem" class="column-content"> {{badgeItem.codiceFiscale}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="actions" >
+              <th mat-header-cell *matHeaderCellDef> Azioni </th>
+              <td mat-cell *matCellDef="let badgeItem">
+                <a mat-button color="primary" [routerLink]="['/badge/show', badgeItem.id]"> Visualizza dettagli </a>
+                <a mat-button color="primary" [routerLink]="['/badge/edit', badgeItem.id]"> Modifica </a>
+                <a mat-button color="warn" [routerLink]="['/badge/delete', badgeItem.id]"> Elimina </a>
               </td>
+            </ng-container>
 
-            </tr>
-
-            </tbody>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
           </table>
         </div>
 
-<!--        &lt;!&ndash; end card-body &ndash;&gt;-->
+
+
+
       </div>
-      <!-- end card -->
     </div>
 
 
-    <!-- end container -->
   </div>
 
 </main>

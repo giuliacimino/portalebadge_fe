@@ -10,9 +10,11 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./badge-list.component.css']
 })
 export class BadgeListComponent implements OnInit{
-  badges?:Badge[];
+  badges!:Badge[];
   sub?:Subscription;
   confirmMessage: string = '';
+  displayedColumns: string[] = ['nome', 'cognome', 'dataNascita', 'codiceFiscale', 'actions'];
+
   constructor(private badgeService: BadgeService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
