@@ -16,6 +16,13 @@ import { BadgeDeleteComponent } from './src/app/features/badge/badge-delete/badg
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTableModule} from "@angular/material/table";
 import {MatButtonModule} from "@angular/material/button";
+import { EliminaBadgeModalComponent } from './src/app/features/badge/elimina-badge-modal/elimina-badge-modal.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
+import { BadgePreferitiComponent } from './src/app/features/badge/badge-preferiti/badge-preferiti.component';
+import { RicercaBadgeComponent } from './src/app/features/badge/ricerca-badge/ricerca-badge.component';
+import {MatInputModule} from "@angular/material/input";
+
 
 @NgModule({
   declarations: [
@@ -28,6 +35,9 @@ import {MatButtonModule} from "@angular/material/button";
     BadgeShowComponent,
     BadgeEditComponent,
     BadgeDeleteComponent,
+    EliminaBadgeModalComponent,
+    BadgePreferitiComponent,
+    RicercaBadgeComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +46,10 @@ import {MatButtonModule} from "@angular/material/button";
     FormsModule,
     BrowserAnimationsModule,
     MatTableModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDialogModule,
+    MatIconModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -37,47 +37,40 @@
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 
-    <div class="p-5 mb-4 bg-light rounded-3">
-      <div class="container-fluid py-5">
+    <div class="p-5 mb-4 bg-body-secondary rounded-3 mt-3">
+      <div class="container-fluid py-2">
         <h1 class="display-5 fw-bold">Benvenuto al Portale Badge</h1>
-        <p class="col-md-8 fs-4">Questo è il portale dove trovare l'archivio dei badge. <br> È possibile aggiungere nuovi bage, modificare
+        <p class="col-md-8 fs-5">Questo è il portale dove trovare l'archivio dei badge. <br> È possibile aggiungere nuovi badge, modificare
         o eliminare quelli esistenti, ed effettuare ricerche. </p>
-        <a routerLink="/badge/list" class="btn btn-primary btn-lg" >Vai alla lista dei Badge</a>
+        <a routerLink="/badge/list" class="btn btn-secondary btn-lg" >Vai alla lista dei Badge</a>
       </div>
     </div>
 
   </div>
 
-  <div class="container px-4 py-5" id="featured-3">
+  <div class="container px-4 py-1" id="featured-3">
     <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
-      <div class="feature col">
-        <div class="feature-icon bg-primary bg-gradient">
-          <svg class="bi" width="1em" height="1em">
-            <use xlink:href="#collection" />
-          </svg>
+      <div class="feature col bg-info-subtle">
+        <div class="feature-icon bg-gradient">
+          <button mat-icon-button class="custom-icon-button-add">
+            <mat-icon class="custom-size">note_add</mat-icon>
+          </button>
         </div>
         <h2>Inserisci Nuovo Badge</h2>
         <p>Attraverso questa funzionalità è possibile aggiungere nuovi badge.</p>
-        <a routerLink="badge/insert" class="icon-link">
-          Vai alla funzionalità
-          <svg class="bi" width="1em" height="1em">
-            <use xlink:href="#chevron-right" />
-          </svg>
-        </a>
+        <a routerLink="/badge/insert" class="btn btn-secondary btn-sm" >Vai alla funzionalità</a>
+
       </div>
-      <div class="feature col">
-        <div class="feature-icon bg-primary bg-gradient">
-          <svg class="bi" width="1em" height="1em">
-            <use xlink:href="#people-circle" />
-          </svg>
+      <div class="feature col bg-info-subtle mx-4">
+        <div class="feature-icon bg-gradient">
+          <button mat-icon-button class="custom-icon-button-add">
+            <mat-icon class="custom-size">person</mat-icon>
+          </button>
         </div>
         <h2>Ricerca Badge</h2>
         <p>Attraverso questa funzionalità è possibile effettuare una ricerca tra i badge esistenti.</p>
-        <a href="/commessa/list" class="icon-link">
+        <a [routerLink]="['/badge/search']" class="btn btn-secondary btn-sm">
           Vai alla funzionalità
-          <svg class="bi" width="1em" height="1em">
-            <use xlink:href="#chevron-right" />
-          </svg>
         </a>
       </div>
 <!--      <div class="feature col">-->

@@ -2,3 +2,13 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html{
+  --mdc-outlined-text-field-outline-color: blue;
+  --mdc-outlined-text-field-focus-outline-color: blue;
+  --mdc-outlined-text-field-focus-label-text-color: blue;
+  --mdc-outlined-text-field-input-text-color: black;
+  --mdc-outlined-text-field-label-text-color: blue;
+  --mdc-protected-button-container-color: blue;
+
+}

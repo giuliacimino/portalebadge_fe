@@ -1,1 +1,109 @@
-<p>badge-edit works!</p>
+<!-- Begin page content -->
+<main class="flex-shrink-0">
+  <div class="container">
+
+
+    <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="errorMessage">
+      {{errorMessage}}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <div class='card'>
+      <div class='card-header mt-3'>
+        <h2>Modifica elemento</h2>
+      </div>
+      <div class='card-body' *ngIf="badgeEdit">
+
+        <form (ngSubmit)="update(badgeForm)" #badgeForm="ngForm" class="row g-3">
+
+
+          <div class="col-md-6">
+            <label>Nome <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" placeholder="Inserire il nome" required minlength="2"
+                   id="ragioneSociale" name="ragioneSociale" [(ngModel)]="badgeEdit.nome" #nomeVar="ngModel"
+                   [ngClass]="{'is-invalid': (nomeVar.touched || nomeVar.dirty) && !nomeVar.valid }">
+            <span class="invalid-feedback">
+                            <span *ngIf="nomeVar.errors?.['required']">
+                                Prego inserire un valore
+                            </span>
+                            <span *ngIf="nomeVar.errors?.['minlength']">
+                                Il campo deve avere almeno due caratteri.
+                            </span>
+                        </span>
+          </div>
+
+          <div class="col-md-6">
+            <label>Cognome <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" placeholder="Inserire cognome" required minlength="2"
+                   id="partitaIva" name="partitaIva" [(ngModel)]="badgeEdit.cognome" #cognomeVar="ngModel"
+                   [ngClass]="{'is-invalid': (cognomeVar.touched || cognomeVar.dirty) && !cognomeVar.valid }">
+            <span class="invalid-feedback">
+                            <span *ngIf="cognomeVar.errors?.['required']">
+                                Prego inserire un valore
+                            </span>
+                            <span *ngIf="cognomeVar.errors?.['minlength']">
+                                Il campo deve avere almeno due caratteri.
+                            </span>
+                        </span>
+          </div>
+
+          <div class="col-md-6">
+            <label>Codice Fiscale <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" placeholder="Inserire codice Fiscale" required minlength="2"
+                   id="indirizzo" name="indirizzo" [(ngModel)]="badgeEdit.codiceFiscale" #codiceFiscaleVar="ngModel"
+                   [ngClass]="{'is-invalid': (codiceFiscaleVar.touched || codiceFiscaleVar.dirty) && !codiceFiscaleVar.valid }">
+            <span class="invalid-feedback">
+                            <span *ngIf="codiceFiscaleVar.errors?.['required']">
+                                Prego inserire un valore
+                            </span>
+                            <span *ngIf="codiceFiscaleVar.errors?.['minlength']">
+                                Il campo deve avere almeno due caratteri.
+                            </span>
+                        </span>
+          </div>
+
+          <div class=" col-md-6">
+            <label>Data Di Nascita<span class="text-danger">*</span></label>
+            <input type="date" class="form-control" placeholder="dd/MM/yy" required id="dataNascita"
+                   name="dataIn" title="formato : gg/mm/aaaa" [(ngModel)]="badgeEdit.dataNascita"
+                   #dataNascitaVar="ngModel"
+                   [ngClass]="{'is-invalid': (dataNascitaVar.touched || dataNascitaVar.dirty) && !dataNascitaVar.valid }">
+            <span class="invalid-feedback">
+                            <span *ngIf="!dataNascitaVar.valid">
+                                Il campo deve essere correttamente valorizzato
+                            </span>
+                        </span>
+          </div>
+
+          <div class="col-md-6 mt-4 form-check" id="scadenza">
+            <p class="mb-1">Scadenza</p>
+            <input type="checkbox" class="form-check-input" id="scadenzaTemporaneo" name="scadenzaTemporaneo" value="temporaneo" [(ngModel)]="scadenzaTemporaneo">
+            <label class="form-check-label" for="scadenzaTemporaneo">Badge temporaneo</label><br>
+
+            <input type="checkbox" class="form-check-input" id="scadenzaPermanente" name="scadenzaPermanente" value="permanente" [(ngModel)]="scadenzaPermanente">
+            <label class="form-check-label" for="scadenzaPermanente">Badge permanente</label>
+          </div>
+
+
+          <div class='card-footer'>
+            <button type="submit" name="submitSave" value="submit" id="submitSave" class="btn btn-primary"
+                    [disabled]="!badgeForm.form.valid">Conferma</button>
+            <button
+              class='btn btn-outline-secondary mx-2' style='width: 80px' (click)="onBack()"> <i
+              class='fa fa-chevron-left'></i> Back
+            </button>
+          </div>
+
+
+        </form>
+        <!-- {{ libro | json }} -->
+
+        <!-- end card-body -->
+      </div>
+      <!-- end card -->
+    </div>
+    <!-- end container -->
+  </div>
+
+  <!-- end main -->
+</main>

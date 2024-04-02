@@ -10,3 +10,23 @@
 .table-responsive {
   margin-top: 2rem;
 }
+.custom-icon-button-add{
+  font-size: 20px;
+  color: darkorange;
+
+}
+.custom-icon-button-fave{
+  color: yellow;
+}
+.custom-icon-button-show{
+  color: dodgerblue;
+}
+.custom-icon-button-edit{
+  color: limegreen;
+}
+.custom-icon-button-delete{
+  color:red;
+}
+.custom-size{
+font-size: 1.5rem;
+}

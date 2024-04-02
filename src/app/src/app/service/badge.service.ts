@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Badge} from "../model/badge";
-import {Observable, of} from "rxjs";
+import {BehaviorSubject, Observable, of} from "rxjs";
 import { catchError } from 'rxjs/operators';
 
 
@@ -14,6 +14,11 @@ export class BadgeService {
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
+
+  private preferitiSubject = new BehaviorSubject<Badge[]>([]);
+  preferiti$ = this.preferitiSubject.asObservable();
+
+
   constructor(private http:HttpClient) { }
 
   getBadges(): Observable<Badge[]> {
@@ -50,6 +55,18 @@ export class BadgeService {
       catchError(this.handleError<Badge>('deleteBadge'))
     );
   }
+
+  aggiungiPreferito(badge: Badge) {
+    const preferitiAttuali = this.preferitiSubject.value;
+    const nuoviPreferiti = [...preferitiAttuali, badge];
+    this.preferitiSubject.next(nuoviPreferiti);
+  }
+
+  cercaBadge(nome: string, cognome: string): Observable<Badge[]> {
+    return this.http.get<Badge[]>(`${this.badgeUrl}/search`, { params: { nome, cognome } });
+  }
+
+
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

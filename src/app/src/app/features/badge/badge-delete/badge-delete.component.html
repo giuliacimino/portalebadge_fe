@@ -1,1 +1,52 @@
-<p>badge-delete works!</p>
+<main class="flex-shrink-0">
+  <div class="container">
+
+    <div class='card'>
+      <div class='card-header mt-3'>
+        <h2>Elimina elemento</h2>
+      </div>
+
+      <div class='card-body'>
+        <dl class="row">
+          <dt class="col-sm-3 text-right">Nome</dt>
+          <dd class="col-sm-9">{{badgeDelete?.nome}}</dd>
+        </dl>
+
+        <dl class="row">
+          <dt class="col-sm-3 text-right">Cognome</dt>
+          <dd class="col-sm-9">{{badgeDelete?.cognome}}</dd>
+        </dl>
+        <dl class="row">
+          <dt class="col-sm-3 text-right">Codice Fiscale</dt>
+          <dd class="col-sm-9">{{badgeDelete?.codiceFiscale}}</dd>
+        </dl>
+        <dl class="row">
+          <dt class="col-sm-3 text-right">Data Di Nascita</dt>
+          <dd class="col-sm-9">{{badgeDelete?.dataNascita | date:'dd/MM/yyyy'}}</dd>
+        </dl>
+        <dl class="row">
+          <dt class="col-sm-3 text-right">Scadenza</dt>
+          <dd class="col-sm-9">{{badgeDelete?.scadenza}}</dd>
+        </dl>
+
+
+
+
+      </div>
+
+
+      <div class='card-footer'>
+        <button type="submit" name="submit" id="submit" class="btn btn-danger" (click)="onConfermaDelete()">Conferma</button>
+        <button class='btn btn-outline-secondary mx-2' (click)="onBack()">
+          <i class='fa fa-chevron-left'></i> Back
+        </button>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+</main>
+
